@@ -285,6 +285,33 @@ export default {
           this.widthOfRef('metaWidthMobile', 'mobileMeta')
         }
       }, 10)
+    },
+    title: function (newVal) {
+      setTimeout(() => {
+        if (this.viewMode === 'desktop') {
+          this.widthOfRef('titleWidth', 'desktopTitle')
+        } else {
+          this.widthOfRef('titleWidthMobile', 'mobileTitle')
+        }
+      }, 10)
+    },
+    url: function (newVal) {
+      setTimeout(() => {
+        if (this.viewMode === 'desktop') {
+          this.widthOfRef('urlWidth', 'desktopUrl')
+        } else {
+          this.widthOfRef('urlWidthMobile', 'mobileUrl')
+        }
+      }, 10)
+    },
+    description: function (newVal) {
+      setTimeout(() => {
+        if (this.viewMode === 'desktop') {
+          this.widthOfRef('metaWidth', 'desktopMeta')
+        } else {
+          this.widthOfRef('metaWidthMobile', 'mobileMeta')
+        }
+      }, 10)
     }
   },
   methods: {
