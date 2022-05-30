@@ -13,14 +13,22 @@
                    autogrow
                    v-model="mainTemp"
           />
+          <div class="q-ma-lg" />
+          <q-btn @click="copy(this.mainTemp)"
+                 style="width: 100%; font-size: 18px;"
+                 color="primary"
+          >کپی کردن متن در کلیپ برد</q-btn>
         </q-card-section>
       </q-card>
     </div>
-    <div class="col-2"></div>
+    <div class="col-2">
+    </div>
   </div>
 </template>
 
 <script>
+import { useQuasar, copyToClipboard } from 'quasar'
+
 export default {
   name: 'TelegramTextGenerator',
   props: {
@@ -79,6 +87,60 @@ export default {
         'تهیه جزوه: 🔖👇' + '\n' +
         '📃  ' + this.productUrl + '\n\n' +
         '🆔 @alaa_sanatisharif'
+    },
+    copy (text) {
+      copyToClipboard(text)
+        .then(() => {
+          this.$q.notify({
+            message: 'کپی شد.',
+            color: 'primary'
+          })
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+    }
+  },
+  watch: {
+    nameDars: function (newVal) {
+      setTimeout(() => {
+        this.getMainTemplate()
+      }, 10)
+    },
+    videoOrder: function (newVal) {
+      setTimeout(() => {
+        this.getMainTemplate()
+      }, 10)
+    },
+    setName: function (newVal) {
+      setTimeout(() => {
+        this.getMainTemplate()
+      }, 10)
+    },
+    videoName1: function (newVal) {
+      setTimeout(() => {
+        this.getMainTemplate()
+      }, 10)
+    },
+    videoName2: function (newVal) {
+      setTimeout(() => {
+        this.getMainTemplate()
+      }, 10)
+    },
+    contentUrl: function (newVal) {
+      setTimeout(() => {
+        this.getMainTemplate()
+      }, 10)
+    },
+    productUrl: function (newVal) {
+      setTimeout(() => {
+        this.getMainTemplate()
+      }, 10)
+    },
+    teacherName: function (newVal) {
+      setTimeout(() => {
+        this.getMainTemplate()
+      }, 10)
     }
   }
 }

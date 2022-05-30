@@ -202,7 +202,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'جلسه معرفی'
+      default: '(عنوان اصلی)'
     },
     url: {
       type: String,
@@ -210,7 +210,7 @@ export default {
     },
     description: {
       type: String,
-      default: 'توضیحات کلی راجع به مصاحبه با ستارگان عدالت اموزشی'
+      default: '(توضیحات کلی راجع به محصول)'
     }
   },
   data () {

@@ -1,10 +1,6 @@
 <template>
-  <!--  Todo : user.vue is also a demo for entity-crud; please do not delete unnecessary stuff -->
   <entity-crud
-    v-model:edit-inputs="editInputs"
     v-model:index-inputs="indexInputs"
-    v-model:show-inputs="showInputs"
-    v-model:create-inputs="createInputs"
     v-model:default-inputs="defaultInputs"
     v-bind="allProps"
   >
@@ -34,7 +30,7 @@
                  size="md"
                  color="info"
                  icon="info"
-                 :to="{name:'Admin.ProductManagement.Show', params: {id: inputData.props.row.id}}">
+                 :to="{name:'Admin.ProductManagement.Show', params: {id:inputData.props.row.id}}">
             <q-tooltip>
               مشاهده
             </q-tooltip>
@@ -57,20 +53,59 @@
         </template>
       </q-td>
     </template>
+    <template v-slot:after-entity-edit>
+      <telegram-text-generator
+        :name-dars="this.defaultInputs[9].value"
+        :video-order="this.defaultInputs[7].value"
+        :set-name="this.defaultInputs[4].value"
+        :video-name1="this.defaultInputs[9].value"
+        :video-name2="this.defaultInputs[9].value"
+        :content-url="this.defaultInputs[8].value"
+        :product-url="this.defaultInputs[8].value"
+        :teacher-name="this.defaultInputs[23].value"
+      />
+      <div class="q-mt-lg"></div>
+      <GoogleSearch :title="this.defaultInputs[9].value"
+                    :url="this.defaultInputs[8].value"
+                    :description="this.defaultInputs[25].value" />
+      <div class="q-ma-lg" />
+    </template>
+    <template v-slot:after-entity-create>
+      <telegram-text-generator
+        :name-dars="this.defaultInputs[9].value"
+        :video-order="this.defaultInputs[7].value"
+        :set-name="this.defaultInputs[4].value"
+        :video-name1="this.defaultInputs[9].value"
+        :video-name2="this.defaultInputs[9].value"
+        :content-url="this.defaultInputs[8].value"
+        :product-url="this.defaultInputs[8].value"
+        :teacher-name="this.defaultInputs[23].value"
+      />
+      <div class="q-mt-lg"></div>
+      <GoogleSearch :title="this.defaultInputs[9].value"
+                    :url="this.defaultInputs[8].value"
+                    :description="this.defaultInputs[25].value" />
+      <div class="q-ma-lg" />
+    </template>
   </entity-crud>
 </template>
 
 <script>
 import API_ADDRESS from 'src/api/Addresses'
-import EntityCrud from 'components/EntityCrud'
+import { EntityCrud } from 'quasar-crud'
+import GoogleSearch from 'components/GoogleSearch'
+import TelegramTextGenerator from 'components/TelegramTextGenerator'
 
 export default {
   name: 'ProductManagement',
   components: {
-    EntityCrud
+    EntityCrud,
+    GoogleSearch,
+    TelegramTextGenerator
   },
   data () {
     return {
+      test: '',
       allProps: {
         config: {
           api: API_ADDRESS.users.show.base,
@@ -164,7 +199,7 @@ export default {
         }
       },
       defaultInputs: [
-        { type: 'file', name: 'photo', responseKey: 'data.photo', size: '250px', col: 'col-md-3' },
+        { type: 'file', label: 'آپلود تصویر', name: 'photo', responseKey: 'data.photo', size: '250px', col: 'col-md-3' },
         { type: 'space', col: 'col-md-12' },
         { type: 'input', name: 'id', responseKey: 'data.id', label: 'شناسه', col: 'col-md-3' },
         { type: 'input', name: 'id', responseKey: 'data.id', label: 'شناسه محصول پرنت', col: 'col-md-3' },
@@ -207,9 +242,6 @@ export default {
         { type: 'input', name: 'order', responseKey: '', label: 'ابر توضیح', col: 'col-md-6' }
         // ------------------------------------------------------------------------------------------------
       ],
-      createInputs: [],
-      editInputs: [],
-      showInputs: [],
       indexInputs: [
         { type: 'input', name: 'name', value: null, label: 'نام', col: 'col-md-4' },
         { type: 'input', name: 'shortDescription', value: null, label: 'توضیحات کوتاه', col: 'col-md-4' },
