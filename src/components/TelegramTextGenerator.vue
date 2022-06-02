@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { useQuasar, copyToClipboard } from 'quasar'
+import { copyToClipboard } from 'quasar'
 
 export default {
   name: 'TelegramTextGenerator',

@@ -335,6 +335,20 @@ const API_ADDRESS = {
       base: alaaServer + '/admin/user/'
     }
   },
+  ticket: {
+    create: {
+      base: alaaServer + '/ticket'
+    },
+    edit: {
+      base: alaaServer + '/ticket/'
+    },
+    index: {
+      base: alaaServer + '/ticket'
+    },
+    show: {
+      base: alaaServer + '/ticket/'
+    }
+  },
   slideShowManagement: {
     create: {
       base: alaaServer + '/admin/user'

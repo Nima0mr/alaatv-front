@@ -29,6 +29,12 @@ const entityCrudRouteConfigs = [
     breadcrumbs: { title: 'مدیریت کاربران' }
   },
   {
+    path: 'ticket',
+    baseRouteName: 'Admin.Ticket',
+    componentPath: 'pages/Admin/Ticket',
+    breadcrumbs: { title: 'لیست تیکت ها' }
+  },
+  {
     path: 'productManagement',
     baseRouteName: 'Admin.ProductManagement',
     componentPath: 'pages/Admin/ProductManagement',

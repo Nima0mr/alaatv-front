@@ -453,6 +453,14 @@ export default {
           ]
         },
         {
+          title: 'تیکت پشتیبانی',
+          icon: 'isax:ticket',
+          routeName: 'Admin.Ticket.Index',
+          show: true,
+          active: false,
+          children: []
+        },
+        {
           title: 'تنظیمات',
           icon: 'isax:setting-2',
           routeName: 'Admin.Settings',
